@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Validator;  //この1行だけ追加！
 
 class BookController extends Controller
 {
@@ -14,7 +15,10 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+       //本のデータ全件取得 
+     $books = Book::orderBy('created_at', 'asc')->get();
+     //検索したデータを変数に入れ、books.blade.phpに持っていく
+     return view('books', ['books' => $books]);
     }
 
     /**
@@ -33,9 +37,33 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request)//送られてきたデータは全てこの$requestの中に入っている
     {
-        //
+      //バリデーション
+    $validator = Validator::make($request->all(), [
+         'item_name' => 'required|min:3|max:255',
+         'item_number' => 'required|min:1|max:3',
+         'item_amount' => 'required|max:6',
+         'published'   => 'required',
+    ]);
+
+    //バリデーション:エラー 
+    if ($validator->fails()) {
+        return redirect('/')
+            ->withInput()
+            ->withErrors($validator);
+    }
+
+    //以下に登録処理を記述（Eloquentモデル）
+	  // Eloquentモデル
+	  $books = new Book;
+	  $books->item_name   = $request->item_name;
+	  $books->item_number = $request->item_number;
+	  $books->item_amount = $request->item_amount;
+	  $books->published   = $request->published;
+	  $books->save(); 
+	  return redirect('/');
+    //
     }
 
     /**

@@ -73,11 +73,15 @@
     
     
     <!--右側エリア[START]-->
-    <div class="flex-1 text-gray-700 text-left bg-blue-100 px-4 py-2 m-2">
-        <x-collection>テスト１</x-collection>
-        <x-collection>テスト２</x-collection>
-        <x-collection>テスト３</x-collection>
-    </div>
+   <div class="flex-1 text-gray-700 text-left bg-blue-100 px-4 py-2 m-2">
+         <!-- 現在の本 -->
+        @if (count($books) > 0)
+        <!-- BookControllerから送られてきたデータが1件でもあれば -->
+            @foreach ($books as $book)
+           <!-- foreachでｓデータの数だけ繰り返し処理をする --> 
+                <x-collection id="{{ $book->id }}">{{ $book->item_name }}</x-collection>
+            @endforeach
+        @endif
     <!--右側エリア[[END]-->       
 
 </div>

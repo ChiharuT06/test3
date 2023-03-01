@@ -23,7 +23,7 @@ Route::get('/dashboard', [BookController::class,'index'])->middleware(['auth'])-
 
 //本：追加 
 Route::post('/books',[BookController::class,"store"])->name('book_store');
-
+//booksにアクセスした際に、BookControllerにアクセスしてstoreという処理を実行する
 //本：削除 
 Route::delete('/book/{book}', [BookController::class,"destroy"])->name('book_destroy');
 
