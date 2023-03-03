@@ -18,8 +18,8 @@ use App\Models\Book; //追加
 */
 
 //本：ダッシュボード表示(books.blade.php)
-Route::get('/', [BookController::class,'index'])->middleware(['auth'])->name('book_index');
-Route::get('/dashboard', [BookController::class,'index'])->middleware(['auth'])->name('dashboard');
+//Route::get('/', [BookController::class,'index'])->middleware(['auth'])->name('book_index');
+//Route::get('/dashboard', [BookController::class,'index'])->middleware(['auth'])->name('dashboard');
 
 //本：追加 
 Route::post('/books',[BookController::class,"store"])->name('book_store');
@@ -39,6 +39,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+Route::get('/', function () {
+    return view('guests');
+});
+
 });
 
 require __DIR__.'/auth.php';
