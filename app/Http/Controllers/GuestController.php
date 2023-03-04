@@ -44,9 +44,13 @@ class GuestController extends Controller
      * @param  \App\Models\Guest  $guest
      * @return \Illuminate\Http\Response
      */
+    
     public function show(Guest $guest)
     {
-        //
+    $student = Guest::find($guest->id);
+     return response()->json(
+        $student,JSON_UNESCAPED_UNICODE
+    );   //
     }
 
     /**
