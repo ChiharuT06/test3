@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
@@ -12,7 +13,7 @@ class GuestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()//データ一覧
     {
         //
     }
@@ -22,7 +23,7 @@ class GuestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create()//作成画面
     {
         //
     }
@@ -33,7 +34,7 @@ class GuestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request)//データベースへの挿入メソッド
     {
         //
     }
@@ -45,7 +46,7 @@ class GuestController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function show(Guest $guest)
+    public function show(Guest $guest)//一つの画面を見る
     {
     $student = Guest::find($guest->id);
      return response()->json(
@@ -59,7 +60,7 @@ class GuestController extends Controller
      * @param  \App\Models\Guest  $guest
      * @return \Illuminate\Http\Response
      */
-    public function edit(Guest $guest)
+    public function edit(Guest $guest)//編集画面
     {
         //
     }
@@ -71,7 +72,7 @@ class GuestController extends Controller
      * @param  \App\Models\Guest  $guest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Guest $guest)
+    public function update(Request $request, Guest $guest)//データの更新
     {
         //
     }
@@ -82,7 +83,7 @@ class GuestController extends Controller
      * @param  \App\Models\Guest  $guest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Guest $guest)
+    public function destroy(Guest $guest)//データの削除
     {
         //
     }

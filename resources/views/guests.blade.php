@@ -39,7 +39,7 @@
                     A
                 </th>
                 <td class= "px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
-                1<div id="A-1">[着席]</div>  
+                1<div id="A-1">[空席]</div>  
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 <button>2</button>  
@@ -81,7 +81,8 @@
 </div>
 <script>
    document.getElementById("A-1").onclick = function() {
-  document.getElementById("A-1").innerHTML = "着席中";
+  document.getElementById("A-1").innerHTML = "{{ Auth::user()->name }}さん着席中";
+  
 };
     
    
