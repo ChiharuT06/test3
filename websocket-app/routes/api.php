@@ -2,11 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GuestController; //追加
-use App\Providers\AuthServiceProvider;//追加
-use App\Providers\BroadcastServiceProvider;//追加
-use App\Providers\EventServiceProvider;//追加
-
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +13,6 @@ use App\Providers\EventServiceProvider;//追加
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::apiResource('guests', GuestController::class);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

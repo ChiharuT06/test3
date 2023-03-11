@@ -42,10 +42,24 @@ Route::middleware('auth')->group(function () {
     
 Route::get('/', function () {
    return view('guests');//guests.blade.phpを返す
-   
-Route::resource('guests', 'GuestController');
 });
 
+// 追加
+    Route::get('/hello-world', function () {
+        event(new App\Events\MyEvent('hello world'));
+        return ['message' => 'send to message : hello world'];
+    });
+
+   
+//Route::group(['prefix' => '/pusher'], function () {
+    Route::get('/pusher-index', function () {
+        return view('pusher-index');
+    });
 });
+   
+Route::resource('guests', 'GuestController');
+
+
+
 
 require __DIR__.'/auth.php';

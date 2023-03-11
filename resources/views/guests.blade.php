@@ -7,6 +7,21 @@
     <title>座席レイアウト</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
+    <script>
+
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher("{{ config('const.pusher.app_key') }}", {
+            cluster: "{{ config('const.pusher.cluster') }}"
+        });
+
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function(data) {
+            alert(JSON.stringify(data));
+        });
+    </script>
     
 </head>
 <x-app-layout>
@@ -87,6 +102,12 @@
     
    
 </script>
+
+<h1>Pusher Test</h1>
+<p>
+    Try publishing an event to channel <code>my-channel</code>
+    with event name <code>my-event</code>.
+</p>
     
 </body>
 
