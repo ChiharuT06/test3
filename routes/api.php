@@ -6,6 +6,7 @@ use App\Http\Controllers\GuestController; //追加
 use App\Providers\AuthServiceProvider;//追加
 use App\Providers\BroadcastServiceProvider;//追加
 use App\Providers\EventServiceProvider;//追加
+use App\Http\Controllers\SeatController; //追加
 
 
 /*
@@ -20,6 +21,7 @@ use App\Providers\EventServiceProvider;//追加
 */
 
 Route::apiResource('guests', GuestController::class);
+Route::apiResource('seats', SeatController::class);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

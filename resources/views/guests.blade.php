@@ -16,11 +16,8 @@
         var pusher = new Pusher("{{ config('const.pusher.app_key') }}", {
             cluster: "{{ config('const.pusher.cluster') }}"
         });
-
-        var channel = pusher.subscribe('my-channel');
-        channel.bind('my-event', function(data) {
-            alert(JSON.stringify(data));
-        });
+      
+       
     </script>
     
 </head>
@@ -54,13 +51,13 @@
                     A
                 </th>
                 <td class= "px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
-                1<div id="A-1">[空席]</div>  
+                1<div id="A-1" class="seat">[空席]</div>  
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
-                <button>2</button>  
+                2<div id="A-2" class="seat">[空席]</div>  
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
-                <button>3</button>  
+                3<div id="A-3" class="seat">[空席]</div>  
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -95,11 +92,34 @@
     </table>
 </div>
 <script>
-   document.getElementById("A-1").onclick = function() {
-  document.getElementById("A-1").innerHTML = "{{ Auth::user()->name }}さん着席中";
   
-};
+  
+  document.querySelectorAll(".seat").forEach(item=>{
+    item.addEventListener("click", function(){
     
+    
+  const params = {
+        id:1,
+        seatId:item.id
+    }
+
+
+    axios.get('/api/seats/1', {params}).then((res)=>{
+        console.log(res)
+    })
+  
+    
+    });
+}); 
+
+
+
+
+ var channel = pusher.subscribe('my-channel');//'my-channel'というチャンネルを作成している
+        channel.bind('my-event', function(data) {//'my-eventというトリガーが実行されたときのalert関数'
+            console.log(document.querySelector(data.seat_id))
+            document.querySelector("#"+data.seat_id).innerHTML = data.id;
+        });
    
 </script>
 

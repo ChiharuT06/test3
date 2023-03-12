@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController; //追加
 use App\Models\Book; //追加
-
+use App\Http\Controllers\GuestController; //追加
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +47,7 @@ Route::get('/', function () {
 // 追加
     Route::get('/hello-world', function () {
         event(new App\Events\MyEvent('hello world'));
-        return ['message' => 'send to message : hello world'];
+    
     });
 
    
@@ -56,9 +56,7 @@ Route::get('/', function () {
         return view('pusher-index');
     });
 });
-   
-Route::resource('guests', 'GuestController');
-
+  
 
 
 
