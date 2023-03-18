@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Events\MyEvent;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SeatController extends Controller
@@ -14,6 +14,8 @@ class SeatController extends Controller
            return response()->json(
         $request,JSON_UNESCAPED_UNICODE
     ); 
+    
+    
  
     }
  //

@@ -52,6 +52,7 @@
                 </th>
                 <td class= "px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 1<div id="A-1" class="seat">[空席]</div>  
+                <div id="leave">[離席]</div>
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 2<div id="A-2" class="seat">[空席]</div>  
@@ -65,13 +66,13 @@
                     B
                 </th>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
-                <button>1</button>  
+                1<div id="B-1" class="seat">[空席]</div>  
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
-                <button>2</button>  
+                2<div id="B-2" class="seat">[空席]</div>  
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
-                <button>3</button>  
+                3<div id="B-3" class="seat">[空席]</div>  
                 </td>
             </tr>
             <tr class="bg-white dark:bg-gray-800">
@@ -79,37 +80,53 @@
                     C
                 </th>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
-                <button>1</button>  
+                1<div id="C-1" class="seat">[空席]</div>  
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
-                <button>2</button>  
+                2<div id="C-2" class="seat">[空席]</div> 
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
-                <button>3</button>  
+                3<div id="C-3" class="seat">[空席]</div> 
                 </td>
             </tr>
     
     </table>
 </div>
 <script>
-  
+;  
+
   
   document.querySelectorAll(".seat").forEach(item=>{
+  //ドキュメント内の全ての要素で ".seat" クラスを持つ要素を取得し、それらに対して forEach メソッドを適用
     item.addEventListener("click", function(){
+    const result= item.dataset.id
     
-    
+    // resに何らかの数字が入っていれば、離席になる
+// 何も入っていなければ、着席になる
+     if(result){
+　　//離席のロジック
+    }else {
+　　//着席のロジック。const params以下のコード
+
+    }
+  //それぞれの ".seat" 要素に、クリックイベントリスナーを追加。クリックされた場合、指定されたコールバック関数が呼び出される。
   const params = {
-        id:1,
+        id:'{{ Auth::user()->name }}',
+//bladeの中のリンクを表示する場合は''で囲うと別の変数として認識される
         seatId:item.id
     }
-
-
-    axios.get('/api/seats/1', {params}).then((res)=>{
+    console.log()
+//クリックされた要素に基づいて、APIリクエストに渡すためのパラメーターを定義。
+//"id" プロパティには 1 が設定され、"seatId" プロパティには、クリックされた要素の ID が設定される。。
+  axios.get('/api/seats/1', {params}).then((res)=>{
         console.log(res)
     })
-  
+//axios ライブラリを使用して、"/api/seats/1" のエンドポイントに GET リクエストを送信z。
+//このリクエストには、"params" オブジェクトが含まれ、"id" と "seatId" パラメーターが送信されます。
+//リクエストが成功すると、コールバック関数が呼び出され、サーバーからのレスポンスが "res" 変数に格納されます。この例では、レスポンスを単にログに出力しています。  
     
     });
+    
 }); 
 
 
@@ -119,15 +136,13 @@
         channel.bind('my-event', function(data) {//'my-eventというトリガーが実行されたときのalert関数'
             console.log(document.querySelector(data.seat_id))
             document.querySelector("#"+data.seat_id).innerHTML = data.id;
+            document.querySelector("#"+data.seat_id).classList.add('pointar-events-none');
+            
         });
    
 </script>
 
-<h1>Pusher Test</h1>
-<p>
-    Try publishing an event to channel <code>my-channel</code>
-    with event name <code>my-event</code>.
-</p>
+
     
 </body>
 

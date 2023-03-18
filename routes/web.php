@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController; //追加
 use App\Models\Book; //追加
 use App\Http\Controllers\GuestController; //追加
+use App\Http\Controllers\SeatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/', function () {
    return view('guests');//guests.blade.phpを返す
 });
+
+
 
 // 追加
     Route::get('/hello-world', function () {

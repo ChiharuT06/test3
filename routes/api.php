@@ -22,6 +22,8 @@ use App\Http\Controllers\SeatController; //追加
 
 Route::apiResource('guests', GuestController::class);
 Route::apiResource('seats', SeatController::class);
+Route::apiResource('/', SeatController::class);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -12,7 +12,9 @@
         });
 
         var channel = pusher.subscribe('my-channel');
+        //サーバー側で発生したイベントが知らされたときに
         channel.bind('my-event', function(data) {
+        //alertを発生させてください
             alert(JSON.stringify(data));
         });
     </script>
