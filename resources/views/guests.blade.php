@@ -52,13 +52,15 @@
                 </th>
                 <td class= "px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 1<div id="A-1" class="seat">[空席]</div>  
-                <div id="leave">[離席]</div>
+                <div class="hidden display: none">[離席]</div>
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 2<div id="A-2" class="seat">[空席]</div>  
+                <div class="hidden display: none">[離席]</div>
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 3<div id="A-3" class="seat">[空席]</div>  
+                <div class="hidden display: none">[離席]</div>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -67,6 +69,7 @@
                 </th>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 1<div id="B-1" class="seat">[空席]</div>  
+                
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 2<div id="B-2" class="seat">[空席]</div>  
@@ -94,24 +97,32 @@
 </div>
 <script>
 ;  
+let moji = "leave"
+    let tmp = document.getElementsByClassName("hidden display: none") ;
 
+    for(let i=0;i<=tmp.length-1;i++){
+        //id追加
+        tmp[i].setAttribute("id",moji+i);
+       
+        
+    };
+    
+  console.log("OK");
+
+     //複数のdiv要素に動的なidをつける
+   
   
   document.querySelectorAll(".seat").forEach(item=>{
   //ドキュメント内の全ての要素で ".seat" クラスを持つ要素を取得し、それらに対して forEach メソッドを適用
     item.addEventListener("click", function(){
     const result= item.dataset.id
+   
     
-    // resに何らかの数字が入っていれば、離席になる
-// 何も入っていなければ、着席になる
-     if(result){
-　　//離席のロジック
-    }else {
-　　//着席のロジック。const params以下のコード
-
-    }
+    
   //それぞれの ".seat" 要素に、クリックイベントリスナーを追加。クリックされた場合、指定されたコールバック関数が呼び出される。
   const params = {
         id:'{{ Auth::user()->name }}',
+        
 //bladeの中のリンクを表示する場合は''で囲うと別の変数として認識される
         seatId:item.id
     }
@@ -127,6 +138,20 @@
     
     });
     
+
+    
+    item.addEventListener("click", function(){
+    
+    let text_1 = '{{ Auth::user()->name }}';
+ 
+    if (!text_1.length){ // text_1の中身が空だったら...
+     console.log("isEmpty");
+    }else { // text_1の中身が空ではなかったら...
+    $(item).next().show()
+     
+    };
+ });
+   
 }); 
 
 

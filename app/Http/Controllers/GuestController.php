@@ -36,7 +36,22 @@ class GuestController extends Controller
      */
     public function store(Request $request)//データベースへの挿入メソッド
     {
-        //
+    $user_id = Auth::id();
+    $clicked_user_id = request()->input('user_id');
+    //
+    }
+    
+    public function showUser($user_id)
+    {
+        $user = User::find($user_id);
+        $logged_in_user_id = Auth::id();
+        $clicked_user_id = request()->input('user_id');
+        $is_current_user = $logged_in_user_id == $clicked_user_id;
+        
+        return view('user',[
+            'user'=>$user,
+            'is_current_user'=>$is_current_user,]);
+        
     }
 
     /**
