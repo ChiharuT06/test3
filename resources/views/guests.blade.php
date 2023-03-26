@@ -102,58 +102,40 @@
 </div>
 <script>
 ;  
-let moji = "leave"
-    let tmp = document.getElementsByClassName("hidden display: none") ;
+let moji = "leave";
+let tmp = document.getElementsByClassName("hidden display: none");
+for (let i = 0; i <= tmp.length - 1; i++) {
+  tmp[i].setAttribute("id", moji + i);
+}
 
-    for(let i=0;i<=tmp.length-1;i++){
-        //id追加
-        tmp[i].setAttribute("id",moji+i);
-       
-        
-    };
-    
-  console.log("OK");
-
-     //複数のdiv要素に動的なidをつける
-   
-  
-  document.querySelectorAll(".seat").forEach(item=>{
-  //ドキュメント内の全ての要素で ".seat" クラスを持つ要素を取得し、それらに対して forEach メソッドを適用
-    item.addEventListener("click", function(){
-    const result= item.dataset.id
-   
-    
-    
-  //それぞれの ".seat" 要素に、クリックイベントリスナーを追加。クリックされた場合、指定されたコールバック関数が呼び出される。
+function request() {
+  const result = item.dataset.id;
   const params = {
-        id:'{{ Auth::user()->name }}',
-        
-//bladeの中のリンクを表示する場合は''で囲うと別の変数として認識される
-        seatId:item.id
-    }
-    console.log()
-//クリックされた要素に基づいて、APIリクエストに渡すためのパラメーターを定義。
-//"id" プロパティには 1 が設定され、"seatId" プロパティには、クリックされた要素の ID が設定される。。
-  axios.get('{{env("APP_URL")}}'+'api/seats/1', {params}).then((res)=>{
-        console.log(res)
-    })
-//axios ライブラリを使用して、"/api/seats/1" のエンドポイントに GET リクエストを送信z。
-//このリクエストには、"params" オブジェクトが含まれ、"id" と "seatId" パラメーターが送信されます。
-//リクエストが成功すると、コールバック関数が呼び出され、サーバーからのレスポンスが "res" 変数に格納されます。この例では、レスポンスを単にログに出力しています。  
-    
-    });
-    
+    id: "test3",
+    seatId: item.id,
+  };
 
-    
-    item.addEventListener("click", function(){
-    
-    let text_1 = '{{ Auth::user()->name }}';
- 
-    if (!text_1.length){ // text_1の中身が空だったら...
-     console.log("isEmpty");
-    }else { // text_1の中身が空ではなかったら...
-    $(item).next().show()
-     
+  axios
+    .get("https://first-commit.sakura.ne.jp/grad/" + "api/seats/1", {
+      params,
+    })
+    .then((res) => {
+      console.log(res);
+    });
+}
+
+document.querySelectorAll(".seat").forEach((item) => {
+  item.addEventListener("click", function () {
+    request();
+
+    let text_1 = "test3";
+    if (!text_1.length) {
+      console.log("isEmpty");
+      $(item).next().hide();
+    } else {
+      $(item).next().show();
+    }
+
     const result = item.dataset.id;
     if (item.textContent === "[空席]") {
       item.textContent = "[選択中]";
@@ -179,20 +161,23 @@ document.querySelectorAll(".hidden").forEach((item) => {
     const seatElement = document.getElementById(seatId);
     seatElement.textContent = "[空席]";
   });
-}); 
-     
-   
+});
 
+/**
+ *
+ * Pusherとイベント絡み
+ *
+ */
 
-
-
- var channel = pusher.subscribe('my-channel');//'my-channel'というチャンネルを作成している
-        channel.bind('my-event', function(data) {//'my-eventというトリガーが実行されたときのalert関数'
-            console.log(document.querySelector(data.seat_id))
-            document.querySelector("#"+data.seat_id).innerHTML = data.id;
-            document.querySelector("#"+data.seat_id).classList.add('pointar-events-none');
-            
-        });
+var channel = pusher.subscribe("my-channel"); //'my-channel'というチャンネルを作成している
+channel.bind("my-event", function (data) {
+  //'my-eventというトリガーが実行されたときのalert関数'
+  console.log(document.querySelector(data.seat_id));
+  document.querySelector("#" + data.seat_id).innerHTML = data.id;
+  document
+    .querySelector("#" + data.seat_id)
+    .classList.add("pointar-events-none");
+});
    
 </script>
 
