@@ -129,7 +129,7 @@ let moji = "leave"
     console.log()
 //クリックされた要素に基づいて、APIリクエストに渡すためのパラメーターを定義。
 //"id" プロパティには 1 が設定され、"seatId" プロパティには、クリックされた要素の ID が設定される。。
-  axios.get('{{env("APP_URL")}}'+'/api/seats/1', {params}).then((res)=>{
+  axios.get('{{env("APP_URL")}}'+'api/seats/1', {params}).then((res)=>{
         console.log(res)
     })
 //axios ライブラリを使用して、"/api/seats/1" のエンドポイントに GET リクエストを送信z。
