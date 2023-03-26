@@ -158,7 +158,7 @@ document.querySelectorAll(".hidden").forEach((item) => {
     const seatId = item.previousElementSibling.getAttribute("id");
     const seatElement = document.getElementById(seatId);
     seatElement.textContent = "[空席]";
-    item.remove();
+    item.removeAttribute('style');
   });
 });
 
