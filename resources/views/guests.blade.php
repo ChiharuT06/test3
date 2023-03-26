@@ -128,7 +128,7 @@ document.querySelectorAll(".seat").forEach((item) => {
   item.addEventListener("click", function () {
     request();
 
-    let text_1 = "test3";
+    let text_1 = "{{ Auth::user()->name }}";
     if (!text_1.length) {
       console.log("isEmpty");
       $(item).next().hide();
