@@ -181,14 +181,7 @@ document.querySelectorAll(".hidden").forEach((item) => {
   });
 }); 
      
-    };
-    
    
- });
-   
-   
-   
-}); 
 
 
 
