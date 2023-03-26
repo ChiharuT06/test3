@@ -108,15 +108,15 @@ for (let i = 0; i <= tmp.length - 1; i++) {
   tmp[i].setAttribute("id", moji + i);
 }
 
-function request() {
+function request(item) {
   const result = item.dataset.id;
   const params = {
-    id: "test3",
+    id: '{{ Auth::user()->name }}',
     seatId: item.id,
   };
 
   axios
-    .get("https://first-commit.sakura.ne.jp/grad/" + "api/seats/1", {
+    .get('{{env("APP_URL")}}' + 'api/seats/1', {
       params,
     })
     .then((res) => {
@@ -126,7 +126,7 @@ function request() {
 
 document.querySelectorAll(".seat").forEach((item) => {
   item.addEventListener("click", function () {
-    request();
+    request(item);
 
     let text_1 = "{{ Auth::user()->name }}";
     if (!text_1.length) {
