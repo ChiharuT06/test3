@@ -160,7 +160,7 @@ let moji = "leave"
       item.textContent = "[空席]";
     } else if(item.textContent === "[離席]"){
       item.textContent = "[空席]";
-    }
+    }item.nextSibling.remove();
   });
 });
 
@@ -169,6 +169,7 @@ document.querySelectorAll(".hidden").forEach(item=>{
     const seatId = item.previousElementSibling.getAttribute("id");
     const seatElement = document.getElementById(seatId);
     seatElement.textContent = "[空席]";
+    
   });
 });
 
