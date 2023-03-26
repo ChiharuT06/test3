@@ -69,13 +69,15 @@
                 </th>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 1<div id="B-1" class="seat">[空席]</div>  
-                
+                <div class="hidden display: none">[離席]</div>
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 2<div id="B-2" class="seat">[空席]</div>  
+                <div class="hidden display: none">[離席]</div>
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 3<div id="B-3" class="seat">[空席]</div>  
+                <div class="hidden display: none">[離席]</div>
                 </td>
             </tr>
             <tr class="bg-white dark:bg-gray-800">
@@ -83,13 +85,16 @@
                     C
                 </th>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
-                1<div id="C-1" class="seat">[空席]</div>  
+                1<div id="C-1" class="seat">[空席]</div>
+                <div class="hidden display: none">[離席]</div>
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 2<div id="C-2" class="seat">[空席]</div> 
+                <div class="hidden display: none">[離席]</div>
                 </td>
                 <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
                 3<div id="C-3" class="seat">[空席]</div> 
+                <div class="hidden display: none">[離席]</div>
                 </td>
             </tr>
     
@@ -151,28 +156,10 @@ let moji = "leave"
      
     };
     
-    document.querySelectorAll(".seat").forEach(item=>{
-  item.addEventListener("click", function(){
-    const result= item.dataset.id
-    if(item.textContent === "[空席]"){
-      item.textContent = "[選択中]";
-    } else if(item.textContent === "[選択中]"){
-      item.textContent = "[空席]";
-    } else if(item.textContent === "[離席]"){
-      item.textContent = "[空席]";
-    } else if(item.textContent === "[離席]"){item.nextSibling.remove()}
-  });
-});
-
-document.querySelectorAll(".hidden").forEach(item=>{
-  item.addEventListener("click", function(){
-    const seatId = item.previousElementSibling.getAttribute("id");
-    const seatElement = document.getElementById(seatId);
-    seatElement.textContent = "[空席]";
-  });
-});
-
+   
  });
+   
+   
    
 }); 
 
