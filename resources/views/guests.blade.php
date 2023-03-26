@@ -108,13 +108,28 @@ for (let i = 0; i <= tmp.length - 1; i++) {
   tmp[i].setAttribute("id", moji + i);
 }
 
+
 function request(item) {
   const result = item.dataset.id;
   const params = {
     id: '{{ Auth::user()->name }}',
     seatId: item.id,
   };
+  axios
+    .get('{{env("APP_URL")}}' + 'api/seats/1', {
+      params,
+    })
+    .then((res) => {
+      console.log(res);
+    });
+}
 
+function deleterequest(item) {
+  const result = item.dataset.id;
+  const params = {
+    id: '{{ Auth::user()->name }}',
+    seatId: item.id,
+  };
   axios
     .get('{{env("APP_URL")}}' + 'api/seats/1', {
       params,
@@ -159,6 +174,7 @@ document.querySelectorAll(".hidden").forEach((item) => {
     const seatElement = document.getElementById(seatId);
     seatElement.textContent = "[空席]";
     item.removeAttribute('style');
+    deleterequest(seatElement);
   });
 });
 
@@ -170,12 +186,18 @@ document.querySelectorAll(".hidden").forEach((item) => {
 
 var channel = pusher.subscribe("my-channel"); //'my-channel'というチャンネルを作成している
 channel.bind("my-event", function (data) {
+if(data.id){
   //'my-eventというトリガーが実行されたときのalert関数'
   console.log(document.querySelector(data.seat_id));
   document.querySelector("#" + data.seat_id).innerHTML = data.id;
   document
     .querySelector("#" + data.seat_id)
-    .classList.add("pointar-events-none");
+    .classList.add("pointar-events-none");}
+    else { document.querySelector("#" + data.seat_id).classList.remove("pointar-events-none");
+
+　　  document.querySelector("#" + data.seat_id).textContent = "空席"
+    
+    }
 });
    
 </script>
