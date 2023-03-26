@@ -154,6 +154,33 @@ let moji = "leave"
     }else { // text_1の中身が空ではなかったら...
     $(item).next().show()
      
+    const result = item.dataset.id;
+    if (item.textContent === "[空席]") {
+      item.textContent = "[選択中]";
+    } else if (item.textContent === "[選択中]") {
+      item.textContent = "[空席]";
+    } else if (item.textContent === "[離席]") {
+      item.textContent = "[空席]";
+    } else if (item.textContent === "[離席]") {
+      item.nextSibling.remove();
+    }
+  });
+});
+
+/**
+ *
+ * hiddenのところ
+ *
+ */
+
+document.querySelectorAll(".hidden").forEach((item) => {
+  item.addEventListener("click", function () {
+    const seatId = item.previousElementSibling.getAttribute("id");
+    const seatElement = document.getElementById(seatId);
+    seatElement.textContent = "[空席]";
+  });
+}); 
+     
     };
     
    
