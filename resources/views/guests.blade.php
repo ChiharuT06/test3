@@ -197,7 +197,7 @@ if(data.id){
 　　  document.querySelector("#" + data.seat_id).textContent = "空席";
      Pusher.trigger('my-channel', 'my-event', {
     'id': null,
-    'seat_id': data.seat_id
+    'seat_id': data.seat_id,
     }
     
     }
