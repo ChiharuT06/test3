@@ -22,6 +22,13 @@ class SeatController extends Controller
         $request,JSON_UNESCAPED_UNICODE
     ); 
     
+    
+     public function edit(Request $request)//一つの画面を見る
+    {      
+        event(new MyEvent2(null, null);
+           return response()->json(
+        $request,JSON_UNESCAPED_UNICODE
+    ); 
  
     }
  //

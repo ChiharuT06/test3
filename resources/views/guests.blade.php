@@ -107,7 +107,7 @@ let tmp = document.getElementsByClassName("hidden display: none");
 for (let i = 0; i <= tmp.length - 1; i++) {
   tmp[i].setAttribute("id", moji + i);
 }
-
+//hidden display noneのdivに対してidを付与
 
 function request(item) {
   const result = item.dataset.id;
@@ -186,6 +186,22 @@ document.querySelectorAll(".hidden").forEach((item) => {
 
 var channel = pusher.subscribe("my-channel"); //'my-channel'というチャンネルを作成している
 channel.bind("my-event", function (data) {
+if(data.id){
+  //'my-eventというトリガーが実行されたときのalert関数'
+  console.log(document.querySelector(data.seat_id));
+  document.querySelector("#" + data.seat_id).innerHTML = data.id;
+  document
+    .querySelector("#" + data.seat_id)
+    .classList.add("pointar-events-none");}
+    else { document.querySelector("#" + data.seat_id).classList.remove("pointar-events-none");
+
+　　  document.querySelector("#" + data.seat_id).textContent = "空席"
+    
+    }
+});
+
+var channel = pusher.subscribe("my-channel2"); //'my-channel'というチャンネルを作成している
+channel.bind("my-event2", function (data) {
 if(data.id){
   //'my-eventというトリガーが実行されたときのalert関数'
   console.log(document.querySelector(data.seat_id));
