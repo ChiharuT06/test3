@@ -107,7 +107,7 @@ let tmp = document.getElementsByClassName("hidden display: none");
 for (let i = 0; i <= tmp.length - 1; i++) {
   tmp[i].setAttribute("id", moji + i);
 }
-//hidden display noneのdivに対してidを付与
+
 
 function request(item) {
   const result = item.dataset.id;
@@ -131,7 +131,7 @@ function deleterequest(item) {
     seatId: item.id,
   };
   axios
-    .get('{{env("APP_URL")}}' + 'api/seats/1/destroy', {
+    .get('{{env("APP_URL")}}' + 'api/seats/1/', {
       params,
     })
     .then((res) => {
@@ -199,8 +199,6 @@ if(data.id){
     
     }
 });
-
-
    
 </script>
 
