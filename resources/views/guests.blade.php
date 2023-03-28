@@ -200,7 +200,7 @@ if(data.id){
     'seat_id': data.seat_id
     }
     
-    
+    }
 });
 
 
