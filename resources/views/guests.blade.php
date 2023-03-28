@@ -187,18 +187,15 @@ document.querySelectorAll(".hidden").forEach((item) => {
 var channel = pusher.subscribe("my-channel"); //'my-channel'というチャンネルを作成している
 channel.bind("my-event", function (data) {
 if(data.id){
+  //'my-eventというトリガーが実行されたときのalert関数'
   console.log(document.querySelector(data.seat_id));
   document.querySelector("#" + data.seat_id).innerHTML = data.id;
   document
     .querySelector("#" + data.seat_id)
     .classList.add("pointar-events-none");}
-    else if { document.querySelector("#" + data.seat_id).classList.remove("pointar-events-none");
+    else { document.querySelector("#" + data.seat_id).classList.remove("pointar-events-none");
 
-　　  document.querySelector("#" + data.seat_id).textContent = "空席";
-     Pusher.trigger('my-channel', 'my-event', {
-    'id': null,
-    'seat_id': data.seat_id,
-    }
+　　  document.querySelector("#" + data.seat_id).textContent = "空席"
     
     }
 });
