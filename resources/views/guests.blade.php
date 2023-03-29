@@ -196,6 +196,20 @@ if(data.id){
     else { document.querySelector("#" + data.seat_id).classList.remove("pointar-events-none");
 
 　　  document.querySelector("#" + data.seat_id).textContent = "空席"
+　　  
+　}
+　});　  
+　
+var channel = pusher.subscribe("my-channel2"); //'my-channel'というチャンネルを作成している
+channel.bind("my-event2", function (data) {
+if(data.id){
+  document.querySelector("#" + data.seat_id).innerHTML = data.id;}
+    
+    else { document.querySelector("#" + data.seat_id).classList.remove("pointar-events-none");
+
+　　  document.querySelector("#" + data.seat_id).textContent = "空席"
+    
+    
     
     }
 });
