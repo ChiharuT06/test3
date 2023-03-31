@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class Seat2Controller extends Controller
 {
     
-     public function delete(Request $request)//一つの画面を見る
+     public function delete($id)//一つの画面を見る
     {      
-        event(new MyEvent2(delete($request)));
+        event(new MyEvent2(delete($id)));
          
     ); 
     
