@@ -10,9 +10,8 @@ class Seat2Controller extends Controller
     
      public function delete(Request $request)//一つの画面を見る
     {      
-        event(new MyEvent2($request->id, $request->seatId));
-           return response()->json(
-        $request,JSON_UNESCAPED_UNICODE
+        event(new MyEvent2(delete($request)));
+         
     ); 
     
  
