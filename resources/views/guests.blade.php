@@ -212,6 +212,8 @@ channel.bind("my-event2", function (data) {
     
     }
 });
+
+});
    
 </script>
 
