@@ -203,7 +203,7 @@ if(data.id){
 });
 
 var channel = pusher.subscribe("my-channel2"); //'my-channel'というチャンネルを作成している
-channel.bind("my-event2", function (data2) {
+channel.bind("my-event2", function (data) {
 if(data.id){
   document.querySelector("#" + data.seat_id).innerHTML = data.id;
   document
