@@ -195,7 +195,7 @@ if(data.id){
     .classList.add("pointar-events-none");}
     else { document.querySelector("#" + data.seat_id).classList.remove("pointar-events-none");
 
-　　  document.querySelector("#" + data.seat_id).textContent = "空席"
+　　  document.querySelector("#" + data.seat_id).textContent = "空席";
 　　  var partner_seat_id = (data.seat_id === "seat1") ? "seat2" : "seat1"; // 相手の座席IDを取得
       document.querySelector("#" + partner_seat_id).textContent = "空席";
 　　  
