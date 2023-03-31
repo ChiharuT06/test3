@@ -22,6 +22,7 @@ use App\Http\Controllers\SeatController; //追加
 
 Route::apiResource('guests', GuestController::class);
 Route::apiResource('seats', SeatController::class);
+Route::apiResource('seats2', Seat2Controller::class);
 Route::apiResource('/', SeatController::class);
 
 
