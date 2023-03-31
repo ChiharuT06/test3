@@ -188,7 +188,7 @@ if(data.id){
     .classList.add("pointar-events-none");}
     else { document.querySelector("#" + data.seat_id).classList.remove("pointar-events-none");
 
-　　  document.querySelector("#" + data.seat_id).textContent = "空席"
+　　  document.querySelector("#" + data.seat_id).innerHTML = "空席"
 　　  
 　　  
     
