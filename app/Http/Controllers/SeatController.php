@@ -15,7 +15,7 @@ class SeatController extends Controller
         $request,JSON_UNESCAPED_UNICODE
     ); 
     }
-     public function destroy(Request $request)//一つの画面を見る
+     public function delete(Request $request)//一つの画面を見る
     {      
         event(new MyEvent2($request->id, $request->seatId));
            return response()->json(
