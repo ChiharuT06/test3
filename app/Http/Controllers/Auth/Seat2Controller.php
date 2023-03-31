@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 class Seat2Controller extends Controller
 {
     
-     public function delete($id)//一つの画面を見る
+     public function delete(Request $request)//一つの画面を見る
     {      
-        event(new MyEvent2(delete($id)));
-         
+        event(new MyEvent2($request->id, $request->seatId));
+           return response()->json(
+        $request,JSON_UNESCAPED_UNICODE
     ); 
     
  
