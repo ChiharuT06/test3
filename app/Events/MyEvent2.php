@@ -7,7 +7,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class MyEvent implements ShouldBroadcast
+class MyEvent2 implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
