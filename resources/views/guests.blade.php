@@ -151,14 +151,7 @@ document.querySelectorAll(".seat").forEach((item) => {
       $(item).next().show();
     }
 
-    const result = item.dataset.id;
-    if (item.textContent === "[空席]") {
-      item.textContent = "[選択中]";
-    } else if (item.textContent === "[選択中]") {
-      item.textContent = "[空席]";
-    } else if (item.textContent === "[離席]") {
-      item.textContent = "[空席]";
-    }
+   
   });
 });
 
