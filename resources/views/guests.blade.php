@@ -202,11 +202,21 @@ if(data.id){
     }
 });
 
+
 var channel = pusher.subscribe("my-channel2"); //'my-channel'というチャンネルを作成している
 channel.bind("my-event2", function (data) {
+if(data.id){
+  //'my-eventというトリガーが実行されたときのalert関数'
+  console.log(document.querySelector(data.seat_id));
+  document.querySelector("#" + data.seat_id).innerHTML = data.id;
+  document
+    .querySelector("#" + data.seat_id)
+    .classList.add("pointar-events-none");}
+    else { document.querySelector("#" + data.seat_id).classList.remove("pointar-events-none");
 
 　　  document.querySelector("#" + data.seat_id).textContent = "空席"
-
+　　  
+　　  
     
     }
 });
