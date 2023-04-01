@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
     {
     $this->call([
         guestsSeeder::class,
+        PositionSeeder::class,
+        
     ]);
         // \App\Models\User::factory(10)->create();
 
