@@ -103,7 +103,7 @@
 </div>
 <script>
 
-$(window).on('unload', function(confirmTest);
+$(window).on('unload',confirmTest);
 
 function confirmTest() {
         const result = confirm("本当にいいですか？！")
