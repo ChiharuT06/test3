@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController; //追加
 use App\Models\Book; //追加
-use App\Http\Controllers\GuestController; //追加   
+use App\Http\Controllers\GuestController; //追加
 use App\Http\Controllers\SeatController;
 
 /*
@@ -41,14 +41,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-//Route::get('/', function () {
-  // $positions = Position::all();
-   //return view('guests',compact('positions'));//guests.blade.phpを返す
-//});
-
 Route::get('/', function () {
    return view('guests');//guests.blade.phpを返す
 });
+
+
 
 // 追加
     Route::get('/hello-world', function () {
