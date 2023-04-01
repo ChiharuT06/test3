@@ -42,12 +42,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
+//Route::get('/', function () {
+  // $positions = Position::all();
+   //return view('guests',compact('positions'));//guests.blade.phpを返す
+//});
+
 Route::get('/', function () {
-   $positions = Position::all();
-   return view('guests',compact('positions'));//guests.blade.phpを返す
+   return view('guests');//guests.blade.phpを返す
 });
-
-
 
 // 追加
     Route::get('/hello-world', function () {
