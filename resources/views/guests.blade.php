@@ -26,7 +26,14 @@
 
  <h1>座席一覧</h1>
   
-{{$positions}}
+<tr class="bg-white  dark:bg-gray-800 ">
+    @foreach($positions as $index => $position)
+    <td class= "px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
+    {{$index}}<div id="{{$position->name}}" class="seat">[空席]</div>  
+    <div class="hidden display: none">[離席]</div>
+    </td>
+    @endforeach
+</tr>
 
 <div class="relative overflow-x-auto">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border-separate border border-solid border-2 border-indigo-600 ">
