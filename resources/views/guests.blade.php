@@ -192,7 +192,7 @@ if(data.id){
     .classList.add("pointer-events-none");}
     else { document.querySelector("#" + data.seat_id).classList.remove("pointer-events-none");
 
-　　  document.querySelector("#" + data.seat_id).innerHTML = "空席"
+　　  document.querySelector("#" + data.seat_id).innerHTML = "[空席]"
 
     
     }
@@ -210,7 +210,7 @@ if(data.id){
     .classList.add("pointer-events-none");}
     else { document.querySelector("#" + data.seat_id).classList.remove("pointer-events-none");
 
-　　  document.querySelector("#" + data.seat_id).textContent = "空席"
+　　  document.querySelector("#" + data.seat_id).textContent = "[空席]"
 　　  
 　　  
     
