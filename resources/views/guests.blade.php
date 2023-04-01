@@ -185,8 +185,8 @@ if(data.id){
   document.querySelector("#" + data.seat_id).innerHTML = data.id;
   document
     .querySelector("#" + data.seat_id)
-    .classList.add("pointar-events-none");}
-    else { document.querySelector("#" + data.seat_id).classList.remove("pointar-events-none");
+    .classList.add("pointer-events-none");}
+    else { document.querySelector("#" + data.seat_id).classList.remove("pointer-events-none");
 
 　　  document.querySelector("#" + data.seat_id).innerHTML = "空席"
 
@@ -203,8 +203,8 @@ if(data.id){
   document.querySelector("#" + data.seat_id).innerHTML = data.id;
   document
     .querySelector("#" + data.seat_id)
-    .classList.add("pointar-events-none");}
-    else { document.querySelector("#" + data.seat_id).classList.remove("pointar-events-none");
+    .classList.add("pointer-events-none");}
+    else { document.querySelector("#" + data.seat_id).classList.remove("pointer-events-none");
 
 　　  document.querySelector("#" + data.seat_id).textContent = "空席"
 　　  
