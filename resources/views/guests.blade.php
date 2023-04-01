@@ -104,7 +104,7 @@
 <script>
 
  $(window).on('beforeunload', function() {
-        alert("アラートテスト");
+        alert("アラートテスト")
       
     });
 ;  
