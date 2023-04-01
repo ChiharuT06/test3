@@ -131,7 +131,7 @@ function deleterequest(item) {
     seatId: item.id,
   };
   axios
-    .delete('{{env("APP_URL")}}' + 'api/seats/1/destroy', {
+    .delete('{{env("APP_URL")}}' + 'api/seats/1', {
       params,
     })
     .then((res) => {
