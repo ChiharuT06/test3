@@ -103,8 +103,9 @@
 </div>
 <script>
 
-$(window).on('unload', function() {
-confirmTest() {
+$(window).on('unload', function(confirmTest);
+
+function confirmTest() {
         const result = confirm("本当にいいですか？！")
         if (result) {
           // OKの場合の処理
@@ -114,7 +115,6 @@ confirmTest() {
           alert("キャンセルを押しました！")
         }
       }
-
 ;  
 let moji = "leave";
 let tmp = document.getElementsByClassName("hidden display: none");
