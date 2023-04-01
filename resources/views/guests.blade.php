@@ -104,8 +104,8 @@
 <script>
 
  $(window).on('beforeunload', function() {
-        alert("アラートテスト")
-      
+        alert("アラートテスト");
+     return false;
     });
 ;  
 let moji = "leave";
