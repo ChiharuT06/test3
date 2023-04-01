@@ -15,11 +15,11 @@ class SeatController extends Controller
         $request,JSON_UNESCAPED_UNICODE
     ); 
     }
-     public function destroy(Request $request)//一つの画面を見る
+     public function destroy(Request $deleterequest)//一つの画面を見る
     {      
-        event(new MyEvent2($request->null, $request->null));
+        event(new MyEvent2($deleterequest->null, $deleterequest->null));
            return response()->json(
-        $request,JSON_UNESCAPED_UNICODE
+        $deleterequest,JSON_UNESCAPED_UNICODE
     ); 
     
  
