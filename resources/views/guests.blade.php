@@ -217,7 +217,18 @@ if(data.id){
     }
 });
 
-
+$(window).on('unload', function() {
+confirmTest() {
+        const result = confirm("本当にいいですか？！")
+        if (result) {
+          // OKの場合の処理
+          alert("OKを押しました！")
+        } else {
+          // キャンセルの場合の処理
+          alert("キャンセルを押しました！")
+        }
+      };
+});
    
 </script>
 
