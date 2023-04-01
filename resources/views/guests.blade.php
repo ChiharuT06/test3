@@ -228,7 +228,6 @@ if(data.id){
 });
 
 
-});
    
 </script>
 
