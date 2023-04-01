@@ -25,7 +25,7 @@
 <body>
 
  <h1>座席一覧</h1>
-  
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border-separate border border-solid border-2 border-indigo-600 ">  
 @foreach($positions as $index => $position)
     @if($index % 3 === 0)
     <tr class="bg-white  dark:bg-gray-800 ">
@@ -38,6 +38,7 @@
     </tr>
     @endif
 @endforeach
+</table>
 
 <div class="relative overflow-x-auto">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border-separate border border-solid border-2 border-indigo-600 ">
