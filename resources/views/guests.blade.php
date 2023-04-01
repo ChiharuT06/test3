@@ -103,15 +103,10 @@
 </div>
 <script>
 
-window.addEventListener('beforeunload', this.onUnload);
-
-// イベントの設定解除
-window.removeEventListener('beforeunload', this.onUnload);
-
-onUnload(e) {
-  e.preventDefault();
-  e.returnValue = '';
-}
+ $(window).on('unload', function alertTest() {
+        alert("アラートテスト");
+      };
+    });
 ;  
 let moji = "leave";
 let tmp = document.getElementsByClassName("hidden display: none");
