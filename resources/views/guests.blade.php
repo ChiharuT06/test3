@@ -103,19 +103,14 @@
 </div>
 <script>
 
-$(window).on('unload',confirmTest);
-console.log("unload");
-
-function confirmTest() {
-        const result = confirm("本当にいいですか？！")
-        if (result) {
-          // OKの場合の処理
-          alert("OKを押しました！")
-        } else {
-          // キャンセルの場合の処理
-          alert("キャンセルを押しました！")
-        }
-      }
+$(function(){
+    $(window).on('beforeunload', function(){
+        return 'ページを閉じてもよろしいですか？';
+    });
+    $('button[type=submit]').on('click', function(){
+        $(window).off('beforeunload');
+    });
+});
 ;  
 let moji = "leave";
 let tmp = document.getElementsByClassName("hidden display: none");
