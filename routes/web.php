@@ -6,7 +6,6 @@ use App\Http\Controllers\BookController; //追加
 use App\Models\Book; //追加
 use App\Http\Controllers\GuestController; //追加   
 use App\Http\Controllers\SeatController;
-use App\Models\Position;
 
 /*
 |--------------------------------------------------------------------------
