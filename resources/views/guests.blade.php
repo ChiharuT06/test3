@@ -103,7 +103,7 @@
 </div>
 <script>
 
- $(window).on('unload', function() {
+ $(window).on('beforeunload', function() {
         alert("アラートテスト");
       
     });
