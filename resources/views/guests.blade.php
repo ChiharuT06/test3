@@ -25,22 +25,82 @@
 <body>
 
  <h1>座席一覧</h1>
-<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border-separate border border-solid border-2 border-indigo-600 ">  
-@foreach($positions as $index => $position)
-    @if($index % 3 === 0)
-    <tr class="bg-white  dark:bg-gray-800 ">
-    @endif
-        <td class= "px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
-        {{$index + 1}}<div id="{{$position->name}}" class="seat">[空席]</div>  
-        <div class="hidden display: none">[離席]</div>
-        </td>
-    @if($index % 3 === 2)
-    </tr>
-    @endif
-@endforeach
-</table>
+  
 
 
+<div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border-separate border border-solid border-2 border-indigo-600 ">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
+            <tr>
+                <th scope="col" class="px-6 py-3  border border-solid border-2 border-indigo-600 ">
+                    列
+                </th>
+                <th scope="col" class="px-6 py-3 " >
+                    
+                </th>
+                <th scope="col" class="px-6 py-3 ">
+                    
+                </th>
+                <th scope="col" class="px-6 py-3 ">
+                    
+                </th>
+            </tr>
+        </thead>
+        
+            <tr class="bg-white  dark:bg-gray-800 ">
+                <th scope="row" class="px-6 py-4  text-2xl gray-900 whitespace-nowrap dark:text-white  border border-solid border-2 border-indigo-600 ">
+                    A
+                </th>
+                <td class= "px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
+                1<div id="A-1" class="seat">[空席]</div>  
+                <div class="hidden display: none">[離席]</div>
+                </td>
+                <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
+                2<div id="A-2" class="seat">[空席]</div>  
+                <div class="hidden display: none">[離席]</div>
+                </td>
+                <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
+                3<div id="A-3" class="seat">[空席]</div>  
+                <div class="hidden display: none">[離席]</div>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 text-2xl gray-900 whitespace-nowrap dark:text-white border border-solid border-2 border-indigo-600">
+                    B
+                </th>
+                <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
+                1<div id="B-1" class="seat">[空席]</div>  
+                <div class="hidden display: none">[離席]</div>
+                </td>
+                <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
+                2<div id="B-2" class="seat">[空席]</div>  
+                <div class="hidden display: none">[離席]</div>
+                </td>
+                <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
+                3<div id="B-3" class="seat">[空席]</div>  
+                <div class="hidden display: none">[離席]</div>
+                </td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-800">
+                <th scope="row" class="px-6 py-4 text-2xl gray-900 whitespace-nowrap dark:text-white border border-solid border-2 border-indigo-600">
+                    C
+                </th>
+                <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
+                1<div id="C-1" class="seat">[空席]</div>
+                <div class="hidden display: none">[離席]</div>
+                </td>
+                <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
+                2<div id="C-2" class="seat">[空席]</div> 
+                <div class="hidden display: none">[離席]</div>
+                </td>
+                <td class="px-6 py-4 text-2xl border border-solid border-2 border-indigo-600">
+                3<div id="C-3" class="seat">[空席]</div> 
+                <div class="hidden display: none">[離席]</div>
+                </td>
+            </tr>
+    
+    </table>
+</div>
 <script>
 
 
