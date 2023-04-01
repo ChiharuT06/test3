@@ -107,9 +107,6 @@ $(function(){
     $(window).on('beforeunload', function(){
         return 'ページを閉じてもよろしいですか？';
     });
-    $('button[type=submit]').on('click', function(){
-        $(window).off('beforeunload');
-    });
 });
 ;  
 let moji = "leave";
