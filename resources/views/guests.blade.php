@@ -104,6 +104,7 @@
 <script>
 
 $(window).on('unload',confirmTest);
+console.log("unload");
 
 function confirmTest() {
         const result = confirm("本当にいいですか？！")
