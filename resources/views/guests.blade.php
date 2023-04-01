@@ -105,7 +105,7 @@
 
 $(function(){
     $(window).on('beforeunload', function(){
-        return 'もう一回確認しますけど、本当に本当に離脱しますか？';
+        return 'ページを閉じてもよろしいですか？';
     });
     $('button[type=submit]').on('click', function(){
         $(window).off('beforeunload');
