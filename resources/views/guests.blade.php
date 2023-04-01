@@ -34,7 +34,7 @@
         {{$index + 1}}<div id="{{$position->name}}" class="seat">[空席]</div>  
         <div class="hidden display: none">[離席]</div>
         </td>
-    @if($index % 3 === 0)
+    @if($index % 3 === 2)
     </tr>
     @endif
 @endforeach
