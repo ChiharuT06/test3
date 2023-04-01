@@ -105,7 +105,7 @@
 
  $(window).on('unload', function() {
         alert("アラートテスト");
-      };
+      
     });
 ;  
 let moji = "leave";
