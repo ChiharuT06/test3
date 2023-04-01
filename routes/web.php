@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     
 Route::get('/', function () {
    $positions = Position::all();
-   return view('guests'compact('positions'));//guests.blade.phpを返す
+   return view('guests',compact('positions'));//guests.blade.phpを返す
 });
 
 
