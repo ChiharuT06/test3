@@ -103,11 +103,15 @@
 </div>
 <script>
 
-$(function(){
-    $(window).on('beforeunload', function(){
-        return 'ページを閉じてもよろしいですか？';
-    });
-});
+window.addEventListener('beforeunload', this.onUnload);
+
+// イベントの設定解除
+window.removeEventListener('beforeunload', this.onUnload);
+
+onUnload(e) {
+  e.preventDefault();
+  e.returnValue = '';
+}
 ;  
 let moji = "leave";
 let tmp = document.getElementsByClassName("hidden display: none");
